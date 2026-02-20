@@ -32,6 +32,10 @@ const Navbar = () => {
           <input type="text" placeholder="Search..." className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"/>
           <img src={assets.search_icon} alt="Search"/>
         </div>
+        <div className="flex max-sm:flex-col items-start sm:items-center gap-6">
+          <button className="cursor-pointer">Dashboard</button>
+          <button className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition-all text-white rounded-lg">Login</button>
+        </div>
       </div>
 
     </div>
