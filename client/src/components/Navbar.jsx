@@ -1,25 +1,39 @@
-import React from 'react'
-import {assets, menuLinks} from '../assets/assets'
-import { Link } from 'react-router-dom'     
+import React from "react"
+import { assets, menuLinks } from "../assets/assets"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
-  
-  const location= useLocation()
-  const [open, setOpen] = useState(false)
-  
+
   return (
-    <div>
-      <Link to="/">
-        <img src={assets.logo} alt="logo" className="h-8" />
+    <div className="flex items-center justify-between h-20 px-8 md:px-16 lg:px-24 xl:px-32 bg-black border-b border-gray-800">
+
+      {/* LOGO */}
+      <Link to="/" className="flex items-center h-full">
+        <img
+          src={assets.image}   // or assets.logo
+          alt="UrbanDrive logo"
+          className="max-h-[90%] w-auto object-contain"
+        />
       </Link>
-    <div className={`max-sm:fixed max-sm:h-screen max-sm:w-full max-sm:top-16 max-sm:border-t border-bordercolor right-0 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 max-sm:p-4 tansiton-all duration-300 z-50 ${location.pathname === "/" ? "bg-light" : "bg-white"} ${open ? "max-sm:translate-x-0" : "max-sm:-translate-x-full"}
-      left-full"}`}>
-      {menuLinks.map((link, index) => (
-        <Link key={index} to={link.path} className="mx-4 text-sm font-medium">
-          {link.name}
-        </Link>
-      ))}
-    </div>  
+
+      {/* MENU */}
+      <div className="flex items-center gap-8 text-gray-200 font-medium">
+        {menuLinks.map((link, index) => (
+          <Link
+            key={index}
+            to={link.path}
+            className="hover:text-red-500 transition duration-300"
+          >
+            {link.name}
+          </Link>
+        ))}
+
+        <div className="hidden lg:flex items-center text-sm gap-2 border border-borderColor px-3 rounded-full max-w-56">
+          <input type="text" placeholder="Search..." className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"/>
+          <img src={assets.search_icon} alt="Search"/>
+        </div>
+      </div>
+
     </div>
   )
 }
