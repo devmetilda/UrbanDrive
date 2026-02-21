@@ -1,30 +1,29 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar'
-import { Route, useLocation } from 'react-router-dom'
-import { Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+
 import Home from './pages/Home'
 import CarDetails from './pages/CarDetails'
 import MyBookings from './pages/MyBookings'
-import Owner from './pages/Owner'
-import Login from './pages/Login'
+import Cars from './pages/Cars'   // ✅ ADD THIS
 
 const App = () => {
   
   const [showLogin, setShowLogin] = useState(false)
 
   const location = useLocation()
-  const isOwnerPath = location.pathname.startsWith("/owner")
+  const isOwnerPath = location.pathname.toLowerCase().startsWith("/owner")
 
   return (
     <>
       {!isOwnerPath && <Navbar setShowLogin={setShowLogin} />}
 
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/car-details/:id" element={<CarDetails />} />
-      <Route path="/cars" element={<Cars />} />
-      <Route path="/my-bookings" element={<MyBookings />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/car-details/:id" element={<CarDetails />} />
+        <Route path="/cars" element={<Cars />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
+      </Routes>
     </>
   )
 }
