@@ -20,50 +20,63 @@ const Testimonial = () => {
     { 
       name: "Ava Johnson",
       location: "Sydney, Australia",
-      image: assets.testimonial_image_3,
+      image: assets.testimonial_image_1,
       testimonial: "I highly recommend UrbanDrive! Their fleet is amazing, and I always feel like I'm getting the best deal with excellent service." 
     }
   ];
 
   return (
-    <div className="py-28 px-6 md:px-16 lg:px-24 xl:px-44">
+    <div className="py-24 px-6 md:px-16 lg:px-24 xl:px-44 bg-gray-50">
 
       <Title 
-        title="What Our Customers Say" 
-        subTitle="Discover why discerning travelers choose StayVenture for their luxury accommodations around the world."
+        title="What Our Customers Say"
+        subTitle="Discover why discerning travelers choose UrbanDrive for their premium car rental experience."
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-18">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {testimonials.map((testimonial, index) => (
           <div 
             key={index}
-            className="bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-500"
+            className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
           >
-            <div className="flex items-center gap-3">
+
+            {/* Profile Section */}
+            <div className="flex items-center gap-4">
               <img 
-                className="w-12 h-12 rounded-full" 
-                src={testimonial.image} 
-                alt={testimonial.name} 
+                className="w-14 h-14 rounded-full object-cover"
+                src={testimonial.image}
+                alt={testimonial.name}
               />
               <div>
-                <p className="text-xl">{testimonial.name}</p>
-                <p className="text-gray-500">{testimonial.location}</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  {testimonial.name}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {testimonial.location}
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-1 mt-4">
-              {Array(5).fill(0).map((_, index) => (
-                <img 
-                  key={index} 
-                  src={assets.star_icon} 
-                  alt="Star"
-                />
+            {/* Red Stars */}
+            <div className="flex items-center gap-1 mt-4 text-red-600">
+              {Array(5).fill(0).map((_, i) => (
+                <svg
+                  key={i}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                >
+                  <path d="M12 2l2.9 6.3 6.9.6-5.2 4.7 1.6 6.8L12 17.8l-6.2 3.6 1.6-6.8L2.2 8.9l6.9-.6L12 2z" />
+                </svg>
               ))}
             </div>
 
-            <p className="text-gray-500 max-w-90 mt-4 font-light">
+            {/* Testimonial Text */}
+            <p className="text-gray-600 mt-4 text-sm leading-relaxed">
               "{testimonial.testimonial}"
             </p>
+
           </div>
         ))}
       </div>
