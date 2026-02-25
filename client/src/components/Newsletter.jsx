@@ -2,7 +2,7 @@ import React from 'react'
 
 const Newsletter = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center space-y-2 max-md:px-4 my-10 mb-40 bg-white">
+    <div className="flex flex-col items-center justify-center text-center space-y-2 max-md:px-4 pt-14 pb-28 bg-white">
       
       <h1 className="md:text-4xl text-2xl font-semibold">
         Never Miss a Deal!
@@ -22,11 +22,11 @@ const Newsletter = () => {
         />
 
         <button
-  type="submit"
-  className="md:px-12 px-8 h-full text-white bg-[#B30812] hover:bg-[#8F0610] transition-all duration-300 cursor-pointer rounded-r-md font-medium"
->
-  Subscribe
-</button>
+          type="submit"
+          className="md:px-12 px-8 h-full text-white bg-[#B30812] hover:bg-[#8F0610] transition-all duration-300 cursor-pointer rounded-r-md font-medium"
+        >
+          Subscribe
+        </button>
 
       </form>
 
