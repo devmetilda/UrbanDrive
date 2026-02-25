@@ -63,8 +63,10 @@ const Footer = () => {
       <div className='flex flex-col md:flex-row gap-3 items-center justify-between pt-6'>
         <p>© {new Date().getFullYear()} UrbanDrive. All rights reserved.</p>
         <ul className='flex items-center gap-4'>
-          <li><a href="#" className='hover:text-white transition'>Privacy</a><span> | </span></li>
-          <li><a href="#" className='hover:text-white transition'>Terms</a><span> | </span></li>
+          <li><a href="#" className='hover:text-white transition'>Privacy</a></li>
+          <li>|</li>
+          <li><a href="#" className='hover:text-white transition'>Terms</a></li>
+          <li>|</li>
           <li><a href="#" className='hover:text-white transition'>Cookies</a></li>
         </ul>
       </div>
