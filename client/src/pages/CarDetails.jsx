@@ -17,8 +17,9 @@ const CarDetails = () => {
   }, [id])
 
   return car ? (
-    <div className='px-6 md:px-16 lg:px-24 xl:px-32 mt-16'>
+    <div className='px-6 md:px-16 lg:px-24 xl:px-32 mt-16 mb-24'>
       
+      {/* Back Button */}
       <button 
         onClick={() => navigate(-1)} 
         className='flex items-center gap-2 mb-6 text-gray-500 cursor-pointer'
@@ -35,10 +36,12 @@ const CarDetails = () => {
         
         {/* Left: Car Image & Details */}
         <div className='lg:col-span-2'>
+          
+          {/* Image */}
           <img 
             src={car.image} 
             alt="" 
-            className='w-full h-auto md:max-h-[400px] object-cover rounded-xl mb-6 shadow-md'
+            className='w-full aspect-[16/9] object-cover rounded-xl mb-6 shadow-md'
           />
           
           <div className='space-y-6'>
@@ -53,6 +56,7 @@ const CarDetails = () => {
 
             <hr className='border-borderColor my-6' />
 
+            {/* Specs */}
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
               {[ 
                 {icon: assets.users_icon, text: `${car.seating_capacity} Seats`},
