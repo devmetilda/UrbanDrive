@@ -66,6 +66,21 @@ const CarDetails = () => {
               <p className='text-gray-500'>{car.description}</p>
             </div>
 
+            {/* Features */}
+            <div>
+              <h1 className='text-xl font-medium mb-3'>Features</h1>
+              <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+                {
+                  ["360 Camera", "Bluetooth", "Cruise Control", "Heated Seats", "Keyless Entry", "Navigation System", "Remote Start", "Sunroof","GPS"].map((item) => (
+                    <li key={item}>
+                      <img src={assets.check_icon} alt="" className='h-4 mr-2' />
+                      {item}
+                      </li>
+                  ))
+                }
+              </ul>
+            </div>
+
           </div>
         </div>
 
