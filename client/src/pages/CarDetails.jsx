@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { dummyCarData, assets } from '../assets/assets'
+import Loader from '../components/Loader'
 
 const CarDetails = () => {
 
@@ -9,7 +10,9 @@ const CarDetails = () => {
   const [car, setCar] = useState(null)
 
   useEffect(() => {
-    const foundCar = dummyCarData.find(car => car._id === id)
+    const foundCar = dummyCarData.find(
+      (car) => car._id.toString() === id
+    )
     setCar(foundCar)
   }, [id])
 
@@ -20,18 +23,22 @@ const CarDetails = () => {
         onClick={() => navigate(-1)} 
         className='flex items-center gap-2 mb-6 text-gray-500 cursor-pointer'
       >
-        <img src={assets.arrow_icon} alt="" className='rotate-180 opacity-65' />
+        <img 
+          src={assets.arrow_icon} 
+          alt="" 
+          className='rotate-180 opacity-65 h-4'
+        />
         Back to all cars
       </button>
     
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12'>
         
-        {/* Left: Car Image  & Details */}
+        {/* Left: Car Image & Details */}
         <div className='lg:col-span-2'>
           <img 
             src={car.image} 
             alt="" 
-            className='w-full h-auto md:max-h-[100px] object-cover rounded-xl mb-6 shadow-md'
+            className='w-full h-auto md:max-h-[400px] object-cover rounded-xl mb-6 shadow-md'
           />
           
           <div className='space-y-6'>
@@ -50,7 +57,7 @@ const CarDetails = () => {
               {[ 
                 {icon: assets.users_icon, text: `${car.seating_capacity} Seats`},
                 {icon: assets.fuel_icon, text: `${car.fuel_type}`},
-                {icon: assets.car_icon, text: `${car.transmission_type}`},
+                {icon: assets.car_icon, text: `${car.transmission_type || car.transmission}`},
                 {icon: assets.location_icon, text: `${car.location}`}
               ].map(({icon, text}) => (
                 <div key={text} className='flex flex-col items-center bg-light p-4 rounded-lg'>
@@ -69,13 +76,14 @@ const CarDetails = () => {
             {/* Features */}
             <div>
               <h1 className='text-xl font-medium mb-3'>Features</h1>
-              <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+              <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                 {
-                  ["360 Camera", "Bluetooth", "Cruise Control", "Heated Seats", "Keyless Entry", "Navigation System", "Remote Start", "Sunroof","GPS"].map((item) => (
-                    <li key={item}>
+                  ["360 Camera", "Bluetooth", "Cruise Control", "Heated Seats", "Keyless Entry", "Navigation System", "Remote Start", "Sunroof","GPS"]
+                  .map((item) => (
+                    <li key={item} className='flex items-center'>
                       <img src={assets.check_icon} alt="" className='h-4 mr-2' />
                       {item}
-                      </li>
+                    </li>
                   ))
                 }
               </ul>
@@ -90,7 +98,7 @@ const CarDetails = () => {
       </div>
     </div>
 
-  ) : <p>Loading...</p>
+  ) : <Loader />
 }
 
 export default CarDetails
