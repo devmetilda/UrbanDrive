@@ -8,6 +8,7 @@ const CarDetails = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [car, setCar] = useState(null)
+  const currencyy= import.meta.env.VITE_CURRENCY
 
   useEffect(() => {
     const foundCar = dummyCarData.find(
@@ -97,7 +98,10 @@ const CarDetails = () => {
         </div>
 
         {/* Right: Booking Form */}
-        <form></form>
+        <form className='shadow-lg h-max sticky top-18 rounded-xl p-6 space-y-6 text-gray-500'>
+                
+                <p className='flex items-center justify-between text-2xl text-gray-800 font-semibold'>{currencyy}{car.pricePerDay}<span className='text-base text-gray-400 font-normal'> per day</span></p>
+        </form>
 
       </div>
     </div>
