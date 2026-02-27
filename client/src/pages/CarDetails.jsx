@@ -100,7 +100,14 @@ const CarDetails = () => {
         {/* Right: Booking Form */}
         <form className='shadow-lg h-max sticky top-18 rounded-xl p-6 space-y-6 text-gray-500'>
                 
-                <p className='flex items-center justify-between text-2xl text-gray-800 font-semibold'>{currencyy}{car.pricePerDay}<span className='text-base text-gray-400 font-normal'> per day</span></p>
+                <p className='flex items-center justify-between text-2xl text-gray-800 font-semibold'>{currencyy}{car.pricePerDay}<span className='text-base text-gray-400 font-normal'>per day</span></p>
+
+                <hr className='border-borderColor my-6' />
+
+                <div className='flex flex-col gap-2'>
+                  <label htmlFor="pickup-date">Pickup Date</label>
+                  <input type="date" className='border border-borderColor px-3 py-2 rounded-lg' required id='pickup-date' min={new Date().toISOString().split('T')[0]}/>
+                </div>
         </form>
 
       </div>
