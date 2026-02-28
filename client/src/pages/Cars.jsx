@@ -33,7 +33,7 @@ const Cars = () => {
       </div>
 
       <div className='px-6 md:px-16 lg:px-24 xl:px-32 py-16'>
-        <p>Showing {dummyCarData.length} Cars</p>
+        <p className='text-gray-500 xl:px-20 max-w-7xl max-auto'>Showing {dummyCarData.length} Cars</p>
 
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 mt-4 xl:px-20 max-w-7xl mx-auto'>
           {dummyCarData.map((car, index) => (
