@@ -1,8 +1,11 @@
 import React from 'react'
+import Title from '../components/Title'
+import { dummyMyBookingsData } from '../assets/assets'
+import { useState, useEffect } from 'react'
 
 const MyBookings = () => {
 
-  const [bookings, setBookings] = useStae([])
+  const [bookings, setBookings] = useState([])
 
   const fetchMyBookings = async () => {
     setBookings(dummyMyBookingsData)
