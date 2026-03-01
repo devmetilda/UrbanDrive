@@ -40,9 +40,11 @@ const MyBookings = () => {
               />
             </div>
 
-            <p>
+            <p className='text-lg font-medium mt-2'>
               {booking.car.brand} {booking.car.model}
             </p>
+
+            <p className='text-gray-500'>{booking.car.year} {booking.car.category} {booking.car.location} </p>
 
           </div>
         ))}
