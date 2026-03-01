@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Title from '../components/Title'
 import { dummyMyBookingsData } from '../assets/assets'
+import { useState, useEffect } from 'react'
 
 const MyBookings = () => {
 
@@ -19,18 +20,18 @@ const MyBookings = () => {
       
       <Title 
         title='My Bookings'
-        subTitle='View and manage all your car bookings'
+        subTitle='View and manage your all car bookings'
         align="left"
       />
 
       <div>
-        {bookings.map((booking) => (
+        {bookings.map((booking, index) => (
           <div 
             key={booking._id} 
             className='grid grid-cols-1 md:grid-cols-4 gap-6 p-6 border border-borderColor rounded-lg mt-5 first:mt-12'
           >
             
-            {/* Car Image + Info */}
+            {/* Car Image  + Info */}
             <div className='rounded-md overflow-hidden mb-3'>
               <img 
                 src={booking.car.image} 
@@ -39,14 +40,9 @@ const MyBookings = () => {
               />
             </div>
 
-            <div className='md:col-span-3'>
-              <p className='font-semibold text-lg'>
-                {booking.car.brand} {booking.car.model}
-              </p>
-              <p className='text-gray-500'>
-                {booking.car.category} • {booking.car.year}
-              </p>
-            </div>
+            <p>
+              {booking.car.brand} {booking.car.model}
+            </p>
 
           </div>
         ))}
