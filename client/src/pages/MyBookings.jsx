@@ -51,6 +51,9 @@ const MyBookings = () => {
             {/* Booking Info */}
             <div className='md:col-span-2'>
               <div className='flex items-center gap-2'>
+                <p lcassName='px-3 py-1.5 bg-light rounded'>Booking #{index+1}</p>
+                <p className={'px-3 py-1 text-xs rounded-full'}>{booking.status}</p>
+
               </div>
             </div>
 
