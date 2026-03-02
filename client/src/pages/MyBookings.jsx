@@ -44,13 +44,16 @@ const MyBookings = () => {
               {booking.car.brand} {booking.car.model}
             </p>
 
-            <p className='text-gray-500'>{booking.car.year} {booking.car.category} {booking.car.location} </p>
+            <p className='text-gray-500'>
+              {booking.car.year} {booking.car.category} {booking.car.location}
+            </p>
 
             {/* Booking Info */}
             <div className='md:col-span-2'>
               <div className='flex items-center gap-2'>
-
               </div>
+            </div>
+
           </div>
         ))}
       </div>
