@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from '../components/Title'
-import { dummyMyBookingsData } from '../assets/assets'
+import { dummyMyBookingsData, assets } from '../assets/assets'
 import { useState, useEffect } from 'react'
 
 const MyBookings = () => {
@@ -67,6 +67,21 @@ const MyBookings = () => {
                 </p>
 
               </div>
+
+              <div className='flex items-start gap-2 mt-3'>
+                <img 
+                  src={assets.calender_icon_colored} 
+                  alt="" 
+                  className='w-4 h-4 mt-1'
+                />
+                <div>
+                  <p className='text-gray-500'>Rental Period</p>
+                  <p>
+                    {booking.pickupDate.split('T')[0]} To {booking.returnDate.split('T')[0]}
+                  </p>
+                </div>
+              </div>
+
             </div>
 
           </div>
