@@ -21,7 +21,7 @@ const MyBookings = () => {
       
       <Title 
         title='My Bookings'
-        subTitle='View and manage your all car bookings'
+        subtitle='View and manage your all car bookings'
         align="left"
       />
 
@@ -71,7 +71,7 @@ const MyBookings = () => {
 
               <div className='flex items-start gap-2'>
                 <img 
-                  src={assets.calender_icon_colored} 
+                  src={assets.calendar_icon_colored} 
                   alt="" 
                   className='w-4 h-4 mt-1'
                 />
