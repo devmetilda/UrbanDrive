@@ -17,7 +17,7 @@ const MyBookings = () => {
   }, [])
 
   return (
-    <div className='px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 mt-16 text-sm max-w-7xl'>
+    <div className='px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 mt-16 mb-24 text-sm max-w-7xl'>
       
       <Title 
         title='My Bookings'
