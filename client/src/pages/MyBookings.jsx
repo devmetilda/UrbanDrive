@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 const MyBookings = () => {
 
   const [bookings, setBookings] = useState([])
+  const currencyy = import.meta.env.VITE_CURRENCY || "₹"
 
   const fetchMyBookings = async () => {
     setBookings(dummyMyBookingsData)
@@ -82,6 +83,30 @@ const MyBookings = () => {
                 </div>
               </div>
 
+              <div className='flex items-start gap-2 mt-3'>
+                <img 
+                  src={assets.location_icon_colored} 
+                  alt="" 
+                  className='w-4 h-4 mt-1'
+                />
+                <div>
+                  <p className='text-gray-500'>Pick-up Location</p>
+                  <p>{booking.car.location}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Price */}
+            <div className='md:col-span-1 flex flex-col justify-between gap-6'>
+              <div>
+                <p>Total Price</p>
+                <h1 className='text-2xl font-semibold text-primary'>
+                  {currencyy}{booking.price}
+                </h1>
+                <p>
+                  Booked on {booking.createdAt.split('T')[0]}
+                </p>
+              </div>
             </div>
 
           </div>
