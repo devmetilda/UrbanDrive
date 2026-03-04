@@ -1,4 +1,5 @@
 import React from 'react'
+import { ownerMenuLinks } from '../../assets/assets';
 
 const Sidebar = () => {
 
@@ -30,8 +31,14 @@ const Sidebar = () => {
       )}
       <p className='mt-2 text-base max-md:hidden'>{user?.name}</p>
 
-      <div>
-        
+      <div className='w-full'>
+        {ownerMenuLinks.map((Link,index)=>(
+          <NavLink key={index} to={link.path} className={'relative flex justify-between items-center gap-2 w-full py-3 pl-4 first:mt-6 '}>
+              <img src={linkpath === location.pathname ? link.coloredIcon : link.icon} alt="car icon" />
+              <span className='max-md:hidden'>{link.name}</span>
+              <div className={`${link.path === location.pathname && 'bg-primary'} w-1.5 h-8 rounded-1 right-0 absolute`}></div>
+          </NavLink>
+        ))}
       </div>
       
     </div>
