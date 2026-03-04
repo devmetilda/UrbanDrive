@@ -25,6 +25,14 @@ const Sidebar = () => {
         </label>
 
       </div>
+      {image && (
+        <button className='absolute top-0 right-0 flex p-2 gap-1 bg-primary/10 text-primary cursor-pointer'>Save <img src={assets.check_icon} width={13} alt="" onClick={updateImage}/></button>
+      )}
+      <p className='mt-2 text-base max-md:hidden'>{user?.name}</p>
+
+      <div>
+        
+      </div>
       
     </div>
   )
