@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { assets, dummyUserData } from '../../assets/assets'
 
+
 const NavbarOwner = () => {
 
   const user = dummyUserData;
