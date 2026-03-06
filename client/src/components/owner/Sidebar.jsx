@@ -15,10 +15,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="relative min-h-screen md:flex flex-col items-center pt-8 max-w-[60px] md:max-w-[240px] w-full border-r border-gray-200 text-sm">
+    <div className="relative min-h-screen flex flex-col items-center pt-8 max-w-[240px] w-full border-r border-gray-200 text-sm">
 
       {/* Profile Image */}
-      <div className="group relative">
+      <div className="group relative flex flex-col items-center">
         <label htmlFor="image">
           <img
             src={
@@ -28,7 +28,7 @@ const Sidebar = () => {
                   "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=300"
             }
             alt="user"
-            className="h-9 md:h-14 w-9 md:w-14 rounded-full mx-auto"
+            className="h-14 w-14 rounded-full mx-auto"
           />
 
           <input
@@ -57,39 +57,42 @@ const Sidebar = () => {
       )}
 
       {/* Username */}
-      <p className="mt-2 text-base max-md:hidden">{user?.name}</p>
+      <p className="mt-3 text-base">{user?.name}</p>
 
       {/* Menu Links */}
-      <div className="w-full mt-4">
+      <div className="w-full mt-6">
         {ownerMenuLinks.map((link, index) => (
           <NavLink
             key={index}
             to={link.path}
-            className={`relative flex items-center gap-2 w-full py-3 pl-4 first:mt-6 ${
+            className={`relative flex items-center gap-3 w-full py-3 pl-6 transition-all ${
               link.path === location.pathname
                 ? "bg-primary/10 text-primary"
-                : "text-gray-600"
+                : "text-gray-600 hover:text-primary"
             }`}
           >
+
+            {/* Icon */}
             <img
-              src={
-                link.path === location.pathname
-                  ? link.coloredIcon
-                  : link.icon
-              }
+              src={link.icon}
               alt="menu"
+              className="w-5"
             />
 
-            <span className="max-md:hidden">{link.name}</span>
+            {/* Link Name */}
+            <span>{link.name}</span>
 
+            {/* Active Indicator */}
             <div
               className={`${
                 link.path === location.pathname ? "bg-primary" : ""
               } w-1.5 h-8 rounded absolute right-0`}
             ></div>
+
           </NavLink>
         ))}
       </div>
+
     </div>
   );
 };
