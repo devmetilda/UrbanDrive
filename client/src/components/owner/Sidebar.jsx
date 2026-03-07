@@ -61,36 +61,41 @@ const Sidebar = () => {
 
       {/* Menu Links */}
       <div className="w-full mt-6">
-        {ownerMenuLinks.map((link, index) => (
-          <NavLink
-            key={index}
-            to={link.path}
-            className={`relative flex items-center gap-3 w-full py-3 pl-6 transition-all ${
-              link.path === location.pathname
-                ? "bg-primary/10 text-primary"
-                : "text-gray-600 hover:text-primary"
-            }`}
-          >
+        {ownerMenuLinks.map((link, index) => {
 
-            {/* Icon */}
-            <img
-              src={link.icon}
-              alt="menu"
-              className="w-5"
-            />
+          const active = link.path === location.pathname;
 
-            {/* Link Name */}
-            <span>{link.name}</span>
+          return (
+            <NavLink
+              key={index}
+              to={link.path}
+              className={`relative flex items-center gap-3 w-full py-3 pl-6 transition-all ${
+                active
+                  ? "bg-primary/10 text-primary"
+                  : "text-gray-600 hover:text-primary"
+              }`}
+            >
 
-            {/* Active Indicator */}
-            <div
-              className={`${
-                link.path === location.pathname ? "bg-primary" : ""
-              } w-1.5 h-8 rounded absolute right-0`}
-            ></div>
+              {/* Icon */}
+              <img
+                src={link.icon}
+                alt="menu"
+                className={`w-5 ${active ? "filter brightness-0 saturate-100 sepia hue-rotate-[330deg] saturate-[600%]" : ""}`}
+              />
 
-          </NavLink>
-        ))}
+              {/* Link Name */}
+              <span>{link.name}</span>
+
+              {/* Active Indicator */}
+              <div
+                className={`${
+                  active ? "bg-primary" : ""
+                } w-1.5 h-8 rounded absolute right-0`}
+              ></div>
+
+            </NavLink>
+          );
+        })}
       </div>
 
     </div>
